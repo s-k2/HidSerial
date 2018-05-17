@@ -4,44 +4,10 @@
 
 volatile unsigned char uartBits = 0; // the next bits that have to be send
 
-// DEBUG
-#define SERIAL_BIT_TIME 100
-inline void serial_send_1()
-{
-	PORTA |= (1 << PA6);
-	_delay_us(SERIAL_BIT_TIME);
-}
-
-inline void serial_send_0()
-{
-	PORTA &= ~(1 << PA6);
-	_delay_us(SERIAL_BIT_TIME);
-}
-
-void serial_send(char ch)
-{
-	serial_send_1(); // stop-bit
-	serial_send_0(); // start-bit
-
-	register char i;
-	for(i = 0; i < 8; i++) {
-		if(ch & 1)
-			serial_send_1();
-		else
-			serial_send_0();
-		ch >>= 1;
-	}
-
-	serial_send_1(); // stop-bit
-}
-// DEBUG
 
 inline void trainBitTime(void)
 {
 	uchar overflowCounter = 0;
-
-DDRA |= (1 << PA6);
-PORTA |= (1 << PA6);
 	
 	// set the default values
 	SERIAL_BIT_TIME_REG = SERIAL_DEFAULT_BIT_TIME;
@@ -88,9 +54,6 @@ PORTA |= (1 << PA6);
 	
 	SERIAL_BIT_TIME_REG = bitTime;
 	SERIAL_UNTIL_LSB_REG = bitTime + (bitTime / 2);
-	
-
-	serial_send(SERIAL_BIT_TIME_REG);
 }
 
 inline void sendInit(void)
