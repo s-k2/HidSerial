@@ -1,0 +1,14 @@
+HidSerial
+---------
+
+This is the firmware for the HID-RS232-converter on a ATTiny44.
+
+If you just want to flash the firmware to a brand-new microprocessor, you
+don't need to build this, just take the file TinyBootloader.hex in the bin-
+directory.
+
+If you want to change the source-code you need an avr-gcc-toolchain. The
+development has been done on version 2.8.1, but it should be no problem
+to use any other version of avr-gcc.
+
+To build it, just call "make" within this directory!

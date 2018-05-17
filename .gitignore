@@ -1,0 +1,9 @@
+bin/dep/main.o.d
+bin/dep/serialasm.o.d
+bin/dep/usbdrvasm.o.d
+bin/HidSeral.eep
+bin/HidSeral.lss
+bin/HidSerial.elf
+bin/main.o
+bin/serialasm.o
+bin/usbdrvasm.o
