@@ -38,7 +38,7 @@ LINKONLYOBJECTS =
 INCLUDES =  -Isrc/usbdrv
 
 ## Build
-all: $(TARGET) bin/HidSeral.hex bin/HidSeral.eep bin/HidSeral.lss
+all: $(TARGET) bin/HidSerial.hex bin/HidSerial.eep bin/HidSerial.lss
 
 bin/main.o: src/main.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c -o $@ $<
@@ -65,8 +65,8 @@ bin/%.lss: $(TARGET)
 ## Clean target
 .PHONY: clean
 clean:
-	-rm -rf $(OBJECTS) bin/HidSeral.elf bin/dep/* bin/HidSeral.hex bin/HidSeral.eep bin/HidSeral.lss bin/HidSeral.map
+	-rm -rf $(OBJECTS) bin/HidSerial.elf bin/dep/* bin/HidSerial.hex bin/HidSerial.eep bin/HidSerial.lss bin/HidSerial.map
 
 
 ## Other dependencies
--include $(shell mkdir bin/dep 2>NUL) $(wildcard bin/dep/*)
+-include $(shell mkdir bin/dep) $(wildcard bin/dep/*)
